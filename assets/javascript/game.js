@@ -1,38 +1,34 @@
 //game variables 
-let wins = 0;
-let losses = 0;
-let guessLeft = 9;
-let i = 0;
+var wins = 0;
+var losses = 0;
+var guessLeft = 9;
+var i = 0;
 
 //empty array for guessed letters
 let userGuesses = [];
 
 //letter bank array
-let letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var letters = ["a", "b", "c", "d", "e", "f", "g",
+ "h", "i", "j", "k", "l", "m", "n", "o", "p", "q",
+ "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 //computer picks random letter
-let arshLetter = letters[Math.floor(Math.random() * letters.length)];
+var arshLetter = letters[Math.floor(Math.random() * letters.length)];
 console.log("random letter: " + arshLetter);
 
-//key stroke made
-document.onkeyup = function (event) {
+//key stroke function
+document.onkeyup = function(event) {
+    //var for key choosen 
     var key = event.key;
-
-
+   
+    //var to return guesses to letters guessed
     var guesses = document.getElementById("guesses");
 
-    var key = event.key;
-
-
-
-
-    //user guesses get logged in your guesses
+    //user guesses array
     userGuesses[i] = key;
     i++;
 
-    //add loss counter
-    var guesses = document.getElementById("guesses");
-
+    //leters guessed 
     guesses.innerHTML = "Your Guesses so far: " + userGuesses;
 
     //matches key with corrsponding letter 
@@ -50,7 +46,7 @@ document.onkeyup = function (event) {
             counter.innerHTML = "Guesses left: " + guessLeft;
         }
 
-        //win game then add win and reset function
+        //win game then add win and reset
         else {
             wins++;
 
@@ -61,7 +57,7 @@ document.onkeyup = function (event) {
             gameReset();
         }
 
-        //lose game then add lose and reset function
+        //lose game then add lose and reset 
         if (guessLeft == 0) {
             losses++;
 
@@ -81,8 +77,9 @@ document.onkeyup = function (event) {
             counter.innerHTML = "Guesses left: " + guessLeft;
             //reset arsh letter
             arshLetter = letters[Math.floor(Math.random() * letters.length)];
-            //logs new random number
-            console.log(arshLetter)
+            //logs new random letter
+            console.log("random letter: " + arshLetter)
+            
             //reset guesses
             userGuesses = [];
             i = 0;
