@@ -58,7 +58,7 @@ document.onkeyup = function(event) {
         }
 
         //lose game then add lose and reset 
-        if (guessLeft == 0) {
+        if (guessLeft === 0) {
             losses++;
 
             var lose = document.getElementById("losses");
@@ -80,10 +80,11 @@ document.onkeyup = function(event) {
             //logs new random letter
             console.log("random letter: " + arshLetter)
             
-            //reset guesses
+            
             userGuesses = [];
+            console.log(userGuesses);
             i = 0;
-
+            console.log(i);
 
         }
     }
